@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <p>It's quick and easy.</p>
+            <form method="post" id="formdata">
+                <div class="input-group">
+                    <input type="text" name="first_name" placeholder="First name" required>
+                    <input type="text" name="last_name" placeholder="Surname" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Mobile number or email address" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="New password" required>
+                </div>
+                <div class="input-group">
+                    
+                    <label for="birthday">Date of Birth</label>
+                    <input type="date" name="birthday" required>
+                </div>
+                <div class="input-group">
+                    <label>Gender</label>
+                    <div class="gender-group">
+                        <label><input type="radio" name="gender" value="female" required> Female</label>
+                        <label><input type="radio" name="gender" value="male" required> Male</label>
+                        <label><input type="radio" name="gender" value="custom" required> Custom</label>
+                    </div>
+                </div>
+                <button type="submit" value="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <script>
+
+            document.getElementById("formdata").addEventListener("submit", (event) => {
+             event.preventDefault();
+
+             Firstname = document.getElementsByName('first_name')[0].value;
+
+             lastname = document.getElementsByName('last_name')[0].value;
+
+             email = document.getElementsByName('email')[0].value;
+
+             password = document.getElementsByName('password')[0].value;
+
+             birthday = document.getElementsByName('birthday')[0].value;
+
+
+            //    let gens = document.getElementsByName('gender');
+            //     let gender;
+            //       for(let i=0; i<gens.length; i++){
+            //           if(gens[i].checked == true){
+            //                  gender = gens[i].value;
+            //           }
+            //       }
+       
+            var gender = document.querySelector('input[type=radio][name=gender]:checked').value;
+            
+       
+
+            console.log(Firstname, lastname, email, password, birthday, gender);
+
+        })
+
+        </script>
+
+    </div>
+</body>
+</html>
