@@ -1,0 +1,153 @@
+body{
+    font-family: Arial, sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1420&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    background: rgba(206, 205, 205, 0.9);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 450px;
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-group{
+    margin: 10px 10px;
+    text-align: left;
+}
+
+label{
+    font-weight: bold;
+    color: #333;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+   
+    outline: none;
+    transition: box-shadow 0.5s ease-in-out;
+}
+
+button{
+    background: linear-gradient(to bottom right, #4caf50, #45a847);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover{
+    background: linear-gradient(to bottom right, #45a847, #4caf50);
+    animation: shine 1s infinite alternate;
+    transform: scale(1.05);
+}
+
+@keyframes shine {
+    0% {
+        background: linear-gradient(to bottom right, #45a847, #4caf50);
+    }
+    100% {
+        background: linear-gradient(to bottom right, #4caf50, #45a847);
+    }
+}
+
+.show-password{
+    cursor: pointer;
+    color: #3498db;
+    padding: 5px;
+}
+
+#avatar {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#social-login{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-button{
+    background: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+}
+
+
+input.focus{
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+    transition: box-shadow 0.5s ease-in-out;
+}
+
+
+input.typing{
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.9);
+    animation: neonBreathing 1.5s ease-in-out infinite;
+}
+
+@keyframes neonBreathing {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(0, 0, 255, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+    }
+}
+
+.shake{
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(10px);
+    }
+}
