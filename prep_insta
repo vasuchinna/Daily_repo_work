@@ -1,0 +1,50 @@
+package prepinsta;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class prep {
+	
+
+	public static void main(String[] args) {
+		
+		
+		//Find the Sum of the Numbers in a Given Interval in Java
+		
+		
+//		int a=5;
+//		int b=10;
+//		int sum=0;
+//		for (int i=a; i<=b; i++) {
+//			sum=sum+i;
+//			}
+//		System.out.println("sum of interval numbers is: "+sum);
+		
+		// greatest of two numbers
+		
+//		int a=34;
+//		int b=34;
+//		if (a==b) {
+//			System.out.println("given two numbers are equal");
+//		}else if (a>b) {
+//			System.out.println("the greatest of given two numbers are : "+a);
+//		}else {
+//		System.out.println("the greatest of given two numbers are : "+b);
+//		}
+		
+		
+			// greatest of three numbers
+		
+//		int a=83;
+//		int b=343;
+//		int c=6998;
+//		if(a==b&&b==c&&c==a) {
+//			System.out.println("All three numbers are equal");
+//			
+//		}else if(a>=b&&a>=c) {
+//			System.out.println("the greatest number is :"+a);
+//		}else if (b>=a&&b>=c) {
+//			System.out.println("the greatest number is : "+b);
+//		}else {
+//			System.out.println("the greatest number is : "+c);
+//		}
