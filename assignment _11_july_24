@@ -1,0 +1,98 @@
+package com.example;
+import java.sql.*;
+import java.util.Scanner;
+
+public class andhra {
+
+	    private static final String URL = "jdbc:mysql://localhost:3306/University";
+	    private static final String USER = "root";
+	    private static final String PASSWORD = "vasu5329";
+
+	    public static void main(String[] args) {
+	        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+	            Scanner scanner = new Scanner(System.in);
+
+	            // 1. Add 3 students
+	            for (int i = 0; i < 3; i++) {
+	                System.out.println("Enter name:");
+	                String name = scanner.nextLine();
+	                System.out.println("Enter age:");
+	                int age = Integer.parseInt(scanner.nextLine());
+	                System.out.println("Enter gender:");
+	                String gender = scanner.nextLine();
+	                System.out.println("Enter marks:");
+	                int marks = Integer.parseInt(scanner.nextLine());
+
+	                addStudent(connection, name, age, gender, marks);
+	            }
+
+	            // 2. Update the marks of student whose id is 2
+	            System.out.println("Enter new marks for student with ID 2:");
+	            int newMarks = Integer.parseInt(scanner.nextLine());
+	            updateStudentMarks(connection, 2, newMarks);
+
+	            // 3. Get all students who have marks greater than 350
+	            getStudentsWithMarksGreaterThan(connection, 350);
+
+	            // 4. Delete the student with id 3
+	            deleteStudent(connection, 3);
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    private static void addStudent(Connection connection, String name, int age, String gender, int marks) throws SQLException {
+	        String query = "INSERT INTO Student (name, age, gender, marks) VALUES (?, ?, ?, ?)";
+	        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+	            preparedStatement.setString(1, name);
+	            preparedStatement.setInt(2, age);
+	            preparedStatement.setString(3, gender);
+	            preparedStatement.setInt(4, marks);
+	            preparedStatement.executeUpdate();
+	            System.out.println("Student added successfully.");
+	        }
+	    }
+
+	    private static void updateStudentMarks(Connection connection, int id, int marks) throws SQLException {
+	        String query = "UPDATE Student SET marks = ? WHERE id = ?";
+	        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+	            preparedStatement.setInt(1, marks);
+	            preparedStatement.setInt(2, id);
+	            preparedStatement.executeUpdate();
+	            System.out.println("Marks updated successfully.");
+	        }
+	    }
+
+	    private static void getStudentsWithMarksGreaterThan(Connection connection, int marks) throws SQLException {
+	        String query = "SELECT * FROM Student WHERE marks > ?";
+	        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+	            preparedStatement.setInt(1, marks);
+	            ResultSet resultSet = preparedStatement.executeQuery();
+
+	            System.out.println("Students with marks greater than " + marks + ":");
+	            while (resultSet.next()) {
+	                System.out.println("ID: " + resultSet.getInt("id") +
+	                                   ", Name: " + resultSet.getString("name") +
+	                                   ", Age: " + resultSet.getInt("age") +
+	                                   ", Gender: " + resultSet.getString("gender") +
+	                                   ", Marks: " + resultSet.getInt("marks"));
+	            }
+	        }
+	    }
+
+	    private static void deleteStudent(Connection connection, int id) throws SQLException {
+	        String query = "DELETE FROM Student WHERE id = ?";
+	        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+	            preparedStatement.setInt(1, id);
+	            preparedStatement.executeUpdate();
+	            System.out.println("Student deleted successfully.");
+	        }
+	    }
+	}
+
+	
+	
+	
+
+}
